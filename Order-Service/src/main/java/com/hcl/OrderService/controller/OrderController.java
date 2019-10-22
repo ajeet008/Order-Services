@@ -24,7 +24,7 @@ public class OrderController {
 	public OrderModel addOrder(@RequestBody Order order) throws Exception {
 		OrderModel model = null;
 		try {
-		orderService.addOrder(order);
+		model = orderService.addOrder(order);
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
