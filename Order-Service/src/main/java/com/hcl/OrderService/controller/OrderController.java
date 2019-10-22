@@ -1,10 +1,8 @@
 package com.hcl.OrderService.controller;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,13 +21,14 @@ public class OrderController {
 
 	
 	@PostMapping("/api/addOrder")
-	public Order addOrder(@RequestBody Order order) throws Exception {
+	public OrderModel addOrder(@RequestBody Order order) throws Exception {
+		OrderModel model = null;
 		try {
 		orderService.addOrder(order);
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
-		return order;
+		return model;
 	}
 
 	@PostMapping("/api/cancelOrder/{orderId}")
